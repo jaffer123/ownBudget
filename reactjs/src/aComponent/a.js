@@ -3,7 +3,18 @@ import SignUp from '../signComponent/signup';
 import LeftSide from './leftside';
 import RightSide from './rightside';
 import Content from './content';
+import SignIn from '../signComponent/signin';
 class a extends Component {
+  
+  chooseForm(){
+    const isLoggedIn = this.props.location.state.address;
+    if (isLoggedIn==='signin') {
+      return <SignIn />;  
+    }else{
+      return <SignUp />;
+    }
+  }
+
   RenderPage(){
     return (
       <div>
@@ -15,8 +26,7 @@ class a extends Component {
         <RightSide />
         </div>
         <div className='col-sm-3'>
-        
-        <SignUp />
+          {this.chooseForm()}
         </div>
       </div>
       <hr></hr>

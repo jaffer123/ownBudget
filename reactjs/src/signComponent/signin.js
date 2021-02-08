@@ -4,7 +4,7 @@ class SignIn extends Component {
   render() {
     return (
       <div>
-        <div className="signup-form adj-signup">
+        <div className="signup-form adj-signin">
           <form action="#" method="post">
           <div className="form-group">
           <div className="form-group">

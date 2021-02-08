@@ -1,0 +1,19 @@
+{
+  "name": "ownbudget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaffer123/ownBudget.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaffer123/ownBudget/issues"
+  },
+  "homepage": "https://github.com/jaffer123/ownBudget#readme"
+}
