@@ -1,0 +1,38 @@
+.button{
+    margin-left: 9px;
+}
+.top{
+    margin-top:100px;
+}
+.end-footer{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(7, 7, 7);
+    color: white;
+}
+.main-footer{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(13, 13, 14);
+    padding-top: 40px;
+    color: white;
+}
+.img-footer{
+    float: right;
+    width: 60px;
+    height: 60px;
+    border-radius: 28px;
+}
+.img-filter{
+	filter:'invert(100%) sepia(100%) saturate(26%) hue-rotate(115deg) brightness(105%) contrast(100%)';
+}
+.button-place{
+    padding-left: 34px !important;
+}
+.about-a{
+    font-size: 12px;
+}
+.icon_facebook {
+    background-image: url('../../public/f.png');
+    filter: invert(26%) sepia(40%) saturate(3221%) hue-rotate(217deg) brightness(91%) contrast(79%);
+}

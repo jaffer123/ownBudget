@@ -22,8 +22,16 @@
   height: 40px;
 }
 .header{
-  margin-top  : 5px;
+  width:100%;
+  background-color: white;
+  z-index: 100000;
   padding : 20px;
+  position: fixed;
+  top: 0;
+}
+.overflow{
+  overflow: hidden;
+  width: 100%;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
