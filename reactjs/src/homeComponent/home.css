@@ -1,0 +1,28 @@
+.homebox{
+    height: 600px;
+    border-right: 1px solid rgb(211, 209, 209);
+    box-sizing: content-box;  
+}
+
+.incomebutton{
+    float:right;
+    margin-left: 30px;
+    margin-right: 0px;
+    padding: 0px;
+}
+.expensebutton{
+    padding: 0px;
+}
+.buttonsize{
+    width: 121.5px;
+}
+
+.calculbox{
+    box-sizing: content-box;  
+    border-radius: 8px;
+    width: 300px !important;
+    padding-top: 40px;
+    height: 120px;
+    margin-bottom: 25px;      
+    border: 1px solid ;
+  }

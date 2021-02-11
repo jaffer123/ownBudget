@@ -7,7 +7,7 @@ import SignIn from '../signComponent/signin';
 class a extends Component {
   
   chooseForm(){
-    const isLoggedIn = this.props.location.state.address;
+    const isLoggedIn = this.props.location.state.address?this.props.location.state.address:'signup';
     if (isLoggedIn==='signin') {
       return <SignIn />;  
     }else{
@@ -26,7 +26,8 @@ class a extends Component {
         <RightSide />
         </div>
         <div className='col-sm-3'>
-          {this.chooseForm()}
+          {/* {this.chooseForm()} */}
+          <SignIn />
         </div>
       </div>
       <hr></hr>
