@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
+var db=require('./config/db');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,9 +20,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+//db connection
+
+db.authenticate()
+.then(data =>{
+    console.log("conneted sucessfully");
+})
+.catch(err =>console.log(err));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
