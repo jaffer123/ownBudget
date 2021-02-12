@@ -8,6 +8,7 @@ var db=require('./config/db');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var processRouter = require('./routes/process');
 
 var app = express();
 
@@ -24,7 +25,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/process',processRouter);
 //db connection
 
 db.authenticate()
