@@ -2,6 +2,7 @@ import React ,{Component} from 'react';
 import './home.css';
 import Button from 'react-bootstrap/Button';
 import Income from './income';
+import Expenses from './expenses';
 
 class SideBar extends Component{
 
@@ -21,7 +22,8 @@ class SideBar extends Component{
                     </div>
                 </div>
                 <div>
-                  <Income/>  
+                  {/* <Income/>   */}
+                  <Expenses/>
                 </div>
             </div>
         );

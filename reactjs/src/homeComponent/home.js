@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Calculate from './calculate';
+import Report from './report';
 import SideBar from './sidebar';
 
 class Home extends Component
@@ -13,7 +14,7 @@ class Home extends Component
                     <SideBar />
                     </div>
                     <div className='col-sm-6'>
-
+                    <Report />
                     </div>
                     <div className='col-sm-3'>
                     <Calculate />
