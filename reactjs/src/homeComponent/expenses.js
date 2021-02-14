@@ -7,9 +7,11 @@ class Expenses extends Component{
         this.state ={
             sourcename:'',
             amount:'',
+            type:'2',
             description:'',
         }
     }
+
 
     handleChange=(event)=>{
         var n=event.target.name;
@@ -21,8 +23,19 @@ class Expenses extends Component{
       }
 
       submitExpense=(event)=>{
-        console.log(this.state);
-        alert();
+        let url = 'http://localhost:3001/process/expense';
+        let data = this.state;
+         fetch(url,{
+          method:"post",
+          mode:'cors',
+          headers:{
+            'Accept':'application/json',
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(data),
+        }).then(res=>{
+          console.log(res);
+        })
     }
     expenseForm(){
         return (
@@ -37,7 +50,7 @@ class Expenses extends Component{
             <input type="number" className="form-control" name="amount" placeholder="Expenses Amount" onChange={this.handleChange} required="required"/>
           </div>
           <div className="form-group">
-          <textarea name="description" className="form-control" placeholder="Description(optional)" rows="4" cols="25">
+          <textarea name="description" className="form-control" onChange={this.handleChange} placeholder="Description(optional)" rows="4" cols="25">
             </textarea>
           </div>
           <div className="form-group">

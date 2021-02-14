@@ -21,6 +21,11 @@
   width:40px;
   height: 40px;
 }
+.img-arrow{
+  width: 10px;
+  height:10px;
+  margin-right: 6px;
+}
 .header{
   width:100%;
   background-color: white;

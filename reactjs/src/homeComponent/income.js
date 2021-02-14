@@ -7,6 +7,7 @@ class Income extends Component
     this.state={
         sourcename:'',
         amount:'',
+        type:'1',
         description:'',
     }
   }
@@ -17,9 +18,22 @@ class Income extends Component
     this.setState({
       [n] :v
     });
-  }
-  submitIncome=(event)=>{
+
     console.log(this.state);
+  }
+   submitIncome=async (event)=>{
+
+    let url = 'http://localhost:3001/process/income';
+    let data = this.state;
+    await fetch(url,{ 
+              method :'post', 
+              mode :'cors',
+              headers:{
+                'Accept':'application/json',
+                'content-type':'application/json'
+              },
+              body: JSON.stringify(data),
+              });
   }
     incomeForm(){
         return (
@@ -34,7 +48,7 @@ class Income extends Component
             <input type="number" className="form-control" name="amount" placeholder="Income Amount" onChange={this.handleChange} required="required"/>
           </div>
           <div className="form-group">
-          <textarea name="description" className="form-control" placeholder="Description(optional)" rows="4" cols="25">
+          <textarea name="description" className="form-control" onChange={this.handleChange} placeholder="Description(optional)" rows="4" cols="25">
             </textarea>
           </div>
           <div className="form-group">

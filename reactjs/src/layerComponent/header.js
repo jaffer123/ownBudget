@@ -2,8 +2,30 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import './layer.css'
 import logo from '../../public/symbol.png';
+import Profile from './profile';
 class Header extends Component {
+
+
+  profile(){
+
+    if(window.location.pathname==='/home'){
+        return (
+          <div>
+            <Profile/>
+          </div>
+        );
+    }else{
+      return(
+          <div className="col-sm-2 button-place">
+          <Link to={{ pathname:'/', state:{address: "signup"} }} className="btn btn-info button">Sign Up</Link>
+          <Link to={{ pathname:'/signin', state:{address: "signin"} }} className="btn btn-light">Sign In</Link>
+        </div>
+      );
+    }
+  }
     header(){
+
+      console.log(window.location.pathname);
         return (
             <div className="row header">
             <div className="col-sm-4">
@@ -18,10 +40,7 @@ class Header extends Component {
             </div>
             <div className="col-sm-5">
             </div>
-            <div className="col-sm-2 button-place">
-            <Link to={{ pathname:'/', state:{address: "signup"} }} className="btn btn-info button">Sign Up</Link>
-            <Link to={{ pathname:'/signin', state:{address: "signin"} }} className="btn btn-light">Sign In</Link>
-            </div>
+           {this.profile()}
             </div>
         )
     }
