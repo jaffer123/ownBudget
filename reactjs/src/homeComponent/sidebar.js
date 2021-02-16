@@ -31,8 +31,7 @@ class SideBar extends Component{
                     </div>
                 </div>
                 <div>
-                {this.state.isIncomeTab &&
-                  <Income />  }
+                {this.state.isIncomeTab && <Income />  }
                  { !this.state.isIncomeTab && <Expenses /> }
                 </div>
             </div>

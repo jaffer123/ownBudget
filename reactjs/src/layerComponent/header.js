@@ -18,7 +18,7 @@ class Header extends Component {
       return(
           <div className="col-sm-2 button-place">
           <Link to={{ pathname:'/', state:{address: "signup"} }} className="btn btn-info button">Sign Up</Link>
-          <Link to={{ pathname:'/signin', state:{address: "signin"} }} className="btn btn-light">Sign In</Link>
+          <Link to={{ pathname:'/', state:{address: "signin"} }} className="btn btn-light">Sign In</Link>
         </div>
       );
     }

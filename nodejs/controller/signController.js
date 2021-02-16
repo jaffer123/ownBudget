@@ -17,5 +17,5 @@ exports.login =async function(req,res){
 
 exports.logout =function(req,res){
 
-  res.json("jaffer");
+  res.json("logout");
 }

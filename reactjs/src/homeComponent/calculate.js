@@ -2,7 +2,12 @@ import React,{Component} from 'react';
 import './home.css';
 class Calculate extends Component
 {
-
+    constructor(){
+        super()
+        this.state={
+            item:{},
+        }
+    }
     totalCalculate(){
         return (
             <div className='calculbox'>

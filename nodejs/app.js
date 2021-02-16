@@ -11,28 +11,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var processRouter = require('./routes/process');
 
-var parseCookie = function(cookie) {
 
-  var cookies = cookie.split(',')
-  var cookies_obj  = {};
-  for(var i = 0 ; i < cookies.length ; i++) {
-    var key_val_pair = cookies[i].split("=")
-    cookies_obj[key_val_pair[0]]=key_val_pair[1];
-  }
-  return cookies_obj;
-}
 
 var app = express();
 app.use(cookieParser()); 
-app.use('/users1',(req,res,next)=>{
-  console.log(req.headers);
-  var cookies_obj = {}; 
-    cookies_obj  = parseCookie(req.headers.cookie)
-  if(cookies_obj.auth_token!=undefined)  {
-    jwt.decodeToken(cookies_obj.auth_token,req,res)
-  }else {
-    console.log("please login first or enter a valid token")
-  }
+app.use('/process1',(req,res,next)=>{
+  //call middleware
+  jwt.jwtMiddleware(req,res);
   next();
 })
 
