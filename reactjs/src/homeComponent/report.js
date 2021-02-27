@@ -7,9 +7,9 @@ class Report extends Component
     constructor(){
         super()
         this.state={
-            item:{},
+            item:[],
             currentPage:'1',
-            postsPerPage:'5',
+            postsPerPage:'10',
             isLoaded:false,
         }
     }
@@ -36,9 +36,9 @@ class Report extends Component
         const pageNumbers =[]; 
         let j=1;
         let lastPage =Math.ceil(totalPosts/postsPerPage);
-        for(let i=(this.state.currentPage)<5?1:(this.state.currentPage-5);i<=lastPage;i++){
+        for(let i=(this.state.currentPage)<10?1:(this.state.currentPage-5);i<lastPage;i++){
             pageNumbers.push(i);
-            if(j>5){
+            if(j>10){
               break;
             }
             j++;
@@ -53,6 +53,7 @@ class Report extends Component
                         </a>
                     </li>
                 ))}
+            
                 <li><a onClick={()=>paginate(lastPage)}  className='page-link'>
                             {lastPage} 
                         </a></li>
@@ -71,6 +72,12 @@ class Report extends Component
         const paginate =(pageNumbers)=>this.setState({
             currentPage:pageNumbers,
         })
+
+        const indexOfLastPost =this.state.currentPage * this.state.postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+        const totalPost = this.state.item;
+        const currentPost = totalPost.slice(indexOfFirstPost,indexOfLastPost);
+
         return (
             <div>
                 <table className="table table-bordered">
@@ -80,10 +87,10 @@ class Report extends Component
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.item.length >0 && this.reportValue(this.state.item)}
+                        {this.state.item.length >0 && this.reportValue(currentPost)}
                     </tbody>
                 </table>
-                {this.pagination(this.state.postsPerPage,(this.state.item).length,paginate)}
+                {this.state.item.length >10 && this.pagination(this.state.postsPerPage,(this.state.item).length,paginate)}
             </div>
         );
     }

@@ -2,12 +2,13 @@ var jwtToken =require('jsonwebtoken');
 var mainUtility =require('../utility/mainUtility');
 exports.setjwt = async function(data,req,res){
   const token =await jwtToken.sign({data},'ownbudget-authkey');
-  res.cookie("auth_token", token, {maxAge:900000,httpOnly: true});
+  // res.cookie("auth_token", token, {maxAge:900000,httpOnly: true});
   return token;
 }
 
 exports.jwtMiddleware = function(req,res){
   var auth_token = ''; 
+ // console.log(req.headers.authorization);
   if(req.headers.authorization){
     // cookies_obj  = mainUtility.parseCookie(req.headers.cookie)
   auth_token = mainUtility.parseAuth(req.headers.authorization);  

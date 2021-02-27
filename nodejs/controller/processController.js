@@ -1,6 +1,6 @@
 var Transaction =require('../model/transaction');
 var Sequelize = require('sequelize');
-
+const DATE_FORMATER = require('dateformat');
 exports.reports =function(req,res){
 
         Transaction.findAll()
@@ -17,6 +17,7 @@ exports.income=function(req,res){
              amount:req.body.amount,
              type:req.body.type,
              description:req.body.description,
+             transaction_at:DATE_FORMATER( new Date(),"yyyy-mm-dd HH:MM:ss" ),
      })      
      .then(data =>{
         res.json(data.dataValues);
@@ -31,13 +32,14 @@ exports.expenses=function(req,res){
                 amount:req.body.amount,
                 type:req.body.type,
                 description:req.body.description,
+                transaction_at:DATE_FORMATER( new Date(),"yyyy-mm-dd HH:MM:ss" ),
         })      
         .then(data =>{
            res.json(data.dataValues);
          })
          .catch(err => console.log(err));
          
-}
+} 
 
 exports.calculate=async function(req,res){
         var income = 0;

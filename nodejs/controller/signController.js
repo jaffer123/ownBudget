@@ -9,10 +9,14 @@ exports.signup = function(req,res){
 }
  
 exports.login =async function(req,res){
-    console.log("this is the req toekn");
-    let data = await admin.findOne({where:req.body});
-    let token= await jwt.setjwt(data,req,res);     
-    res.json(token);  
+    let data = await admin.findOne({where:{'email_id':req.body.email_id,'password':req.body.password}});
+    if(data!==null){
+    let token= await jwt.setjwt(data,req,res); 
+    let json ={ 'data':data,
+                'token':token,};    
+    res.json(json);
+    }
+    res.status(500).json("login-failed");   
 }
 
 exports.logout =function(req,res){

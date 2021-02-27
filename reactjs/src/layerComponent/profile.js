@@ -5,12 +5,15 @@ class Profile extends Component{
 
     constructor(){
         super()
+      let userData = localStorage.getItem('userData');
         this.state={
             item:{},
+            userdata:{userData},
         }
     }
 
     render(){
+        console.log(this.state.userdata);
         return (
             <div>
             <div className='row'>
@@ -18,8 +21,8 @@ class Profile extends Component{
                 <td><img className='img' src={profileImg} alt='profile'/></td>
                 </div>
                 <div className='col-sm-5'>
-                    <h8>jaffer</h8><br/>
-                    <h9>jaffer@gmail.com</h9>
+                    jaffer<br/>
+                    jaffer@gmail.com
                 </div>   
                 <div className='col-sm-1'>
                 <Link to={{ pathname:'/', state:{address: "logout"} }} className="btn btn-danger button">Logout</Link>

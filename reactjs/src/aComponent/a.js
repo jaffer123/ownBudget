@@ -4,17 +4,18 @@ import LeftSide from './leftside';
 import RightSide from './rightside';
 import Content from './content';
 import SignIn from '../signComponent/signin';
+import Header from '../layerComponent/header'
 class a extends Component {
   
   chooseForm(){
     if(this.props.location.state){
-      console.log(this.props.location.state);
+
       if(this.props.location.state.address === 'signin')
         var isLoggedIn ='signin';
       else
          isLoggedIn ='signup';  
     }
-  //  const isLoggedIn = this.props.location.state.address?this.props.location.state.address:'signin';
+
     if (isLoggedIn==='signin') {
       return <SignIn />;  
     }else{
@@ -25,6 +26,7 @@ class a extends Component {
   RenderPage(){
     return (
       <div>
+        <Header/>
       <div className='row'>
         <div className='col-sm-4'> 
         <LeftSide />

@@ -24,8 +24,6 @@ class Header extends Component {
     }
   }
     header(){
-
-      console.log(window.location.pathname);
         return (
             <div className="row header">
             <div className="col-sm-4">

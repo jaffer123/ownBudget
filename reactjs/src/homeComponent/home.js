@@ -2,12 +2,13 @@ import React,{Component} from 'react';
 import Calculate from './calculate';
 import Report from './report';
 import SideBar from './sidebar';
-
+import Header from '../layerComponent/header';
 class Home extends Component
 {
     render(){
         return(
             <div>
+                <Header/>
                 <hr/>
                 <div className='row'>
                     <div className='col-sm-3'>
