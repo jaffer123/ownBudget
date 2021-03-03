@@ -15,8 +15,9 @@ exports.login =async function(req,res){
     let json ={ 'data':data,
                 'token':token,};    
     res.json(json);
-    }
-    res.status(500).json("login-failed");   
+    }else{
+    res.status(500).json("login-failed"); 
+    }  
 }
 
 exports.logout =function(req,res){

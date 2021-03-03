@@ -15,7 +15,7 @@ var processRouter = require('./routes/process');
 
 var app = express();
 app.use(cookieParser()); 
-app.use('/process1',(req,res,next)=>{
+app.use('/process',(req,res,next)=>{
   //call middleware
   jwt.jwtMiddleware(req,res);
   next();
