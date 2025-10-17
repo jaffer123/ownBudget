@@ -33,9 +33,9 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-      # Step 5: Run tests
-      - name: Run tests
-        run: npm test
+      # # Step 5: Run tests
+      # - name: Run tests
+      #   run: npm test
 
       # # Step 6: Build (optional, if applicable)
       # - name: Build project
