@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jaffer123/ownBudget/issues"
   },
-  "homepage": "https://github.com/jaffer123/ownBudget#readme"
+  "homepage": "https://github.com/jaffer123/ownBudget#readme",
+  "dependencies": {
+    "eslint": "^9.37.0"
+  }
 }

@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests",
+    "build": "echo \"No build step required for Node.js Express app\""
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
