@@ -1,0 +1,38 @@
+name: CI/CD to EC2 via Docker
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKER_IMAGE }} .
+
+      - name: Save Docker Image to Tar
+        run: |
+          docker save ${{ secrets.DOCKER_IMAGE }} | gzip > image.tar.gz
+
+      - name: Copy Docker Image to EC2
+        run: |
+          scp -o StrictHostKeyChecking=no image.tar.gz ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/
+
+      - name: SSH into EC2 and Deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
+          docker load < image.tar.gz
+          docker stop myapp || true
+          docker rm myapp || true
+          docker run -d --name myapp -p 3000:3000 ${{ secrets.DOCKER_IMAGE }}
+          EOF

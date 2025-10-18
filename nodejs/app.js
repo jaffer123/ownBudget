@@ -27,7 +27,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // Protect routes with JWT middleware
-app.use('/process', jwtMiddleware, processRouter);
+//app.use('/process', jwtMiddleware, processRouter);
 
 // ----- DB Connection -----
 db.authenticate()
