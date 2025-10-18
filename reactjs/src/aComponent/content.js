@@ -8,7 +8,7 @@ class Content extends Component {
         return (
             <div>
                 <div className='row'>
-                    <div className='col content-h4'><h4>Income</h4></div>
+                    <div className='col content-h4'><h4>Incomes</h4></div>
                     <div className='col'>
                     <img className='img-field' src={income} alt='income'></img>
                     </div>
