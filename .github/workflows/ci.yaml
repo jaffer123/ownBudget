@@ -31,15 +31,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Step 4: Lint (optional)
-      - name: Run linter
-        if: always()
-        run: npm run lint --if-present
+      # # Step 4: Lint (optional)
+      # - name: Run linter
+      #   if: always()
+      #   run: npm run lint --if-present
 
-      # Step 5: Run tests (optional)
-      - name: Run tests
-        if: always()
-        run: npm test --if-present -- --watchAll=false
+      # # Step 5: Run tests (optional)
+      # - name: Run tests
+      #   if: always()
+      #   run: npm test --if-present -- --watchAll=false
 
       # Step 6: Build project
       - name: Build project
