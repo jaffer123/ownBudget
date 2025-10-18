@@ -1,12 +1,12 @@
 var jwtToken =require('jsonwebtoken');
 var mainUtility =require('../utility/mainUtility');
-exports.setjwt = async function(data,req,res){
+exports.setjwt = async function(data){
   const token =await jwtToken.sign({data},'ownbudget-authkey');
   // res.cookie("auth_token", token, {maxAge:900000,httpOnly: true});
   return token;
 }
 
-exports.jwtMiddleware = function(req,res){
+exports.jwtMiddleware = function(req,res,next){
   var auth_token = ''; 
  // console.log(req.headers.authorization);
   if(req.headers.authorization){
@@ -17,6 +17,7 @@ exports.jwtMiddleware = function(req,res){
   }else {
     console.log("please login first or enter a valid token")
   }
+  next();
   }else{
     res.status(500).send({ auth: false, message: 'please login first or enter a valid token' });
   }
